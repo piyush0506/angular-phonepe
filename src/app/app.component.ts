@@ -19,7 +19,7 @@ export class AppComponent {
         if (response.success) {
           // Redirect user to PhonePe gateway page or handle the response accordingly
           console.log(response.data)
-          // window.location.href = response.data.paymentUrl;
+          window.location.href = response.data.instrumentResponse.redirectInfo.url;
         } else {
           alert('Payment initiation failed');
         }
