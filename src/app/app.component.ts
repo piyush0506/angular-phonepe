@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private paymentService: PaymentService) { }
 
   initiatePayment() {
-    this.paymentService.initiatePayment(this.orderId, this.amount, this.callbackUrl)
+    this.paymentService.initiatePayment(this.orderId, this.amount, encodeURI(this.callbackUrl))
       .subscribe(response => {
         if (response.success) {
           // Redirect user to PhonePe gateway page or handle the response accordingly
