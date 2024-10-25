@@ -1,0 +1,11 @@
+<div>
+    <h2>PhonePe Payment</h2>
+
+    <label for="orderId">Order ID:</label>
+    <input type="text" [(ngModel)]="orderId" id="orderId" /><br />
+
+    <label for="amount">Amount:</label>
+    <input type="number" [(ngModel)]="amount" id="amount" /><br />
+
+    <button (click)="initiatePayment()">Pay Now</button>
+</div>

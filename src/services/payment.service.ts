@@ -10,6 +10,8 @@ export class PaymentService {
   private paymentUrl = 'https://node-phonepe-pg.vercel.app/initiate';
   private statusUrl = 'https://node-phonepe-pg.vercel.app/status';
 
+  private mearchantId = 'M110NES2UDXSUAT'; // To be kept in environment file
+
   constructor(private http: HttpClient) { }
 
   initiatePayment(orderId: string, amount: number, callbackUrl: string): Observable<any> {
@@ -21,7 +23,7 @@ export class PaymentService {
     return this.http.post(this.paymentUrl, body);
   }
 
-  checkPaymentStatus(orderId: string): Observable<any> {
-    return this.http.post(this.statusUrl, { orderId });
+  checkPaymentStatus(transactionId: string): Observable<any> {
+    return this.http.post(this.statusUrl, { transactionId });
   }
 }
