@@ -1,11 +1,15 @@
-<div>
-    <h2>PhonePe Payment</h2>
-
-    <label for="orderId">Order ID:</label>
-    <input type="text" [(ngModel)]="orderId" id="orderId" /><br />
-
-    <label for="amount">Amount:</label>
-    <input type="number" [(ngModel)]="amount" id="amount" /><br />
-
-    <button (click)="initiatePayment()">Pay Now</button>
+<div class="container d-flex justify-content-center" style="height: 100vh;">
+    <div class="row h-100">
+        <div class="col-12 h-100 d-flex flex-column">
+            <h2 class="text-center mt-5">PhonePe Payment</h2>
+            <div class="my-auto">
+                <h3 class="text-center">Amount: {{amount}} &#8377;</h3>
+                <button class="btn btn-success w-100 mt-4" (click)="initiatePayment()" [disabled]="loading">
+                    <span *ngIf="!loading">Pay Now</span>
+                    <div *ngIf="loading" class="spinner-grow" style="width: 1rem; height: 1rem;">
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,2 +1,7 @@
-<p>payment-callback works!</p>
-<button (click)="openApp()">Open App</button>
+<div class="mt-5 mx-5">
+    <div *ngIf="!checkingStatus">
+        <h5>Redirecting to the app in {{seconds}} seconds</h5>
+        <button class="btn btn-success" (click)="openApp()">Open App</button>
+    </div>
+    <h3 *ngIf="checkingStatus">Please wait, while we are checking the payment status</h3>
+</div>

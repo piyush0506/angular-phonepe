@@ -9,14 +9,17 @@ import { routePaths } from '../app-routing.module';
 })
 export class PaymentComponent {
   orderId: string = '';
-  amount: number = 0;
+  amount: number = 11;
+  loading: boolean = false;
   callbackUrl: string = `https://angular-phonepe.vercel.app/${routePaths.paymentCallback}`;
 
   constructor(private paymentService: PaymentService) { }
 
   initiatePayment() {
+    this.loading = true;
     this.paymentService.initiatePayment(this.orderId, this.amount, this.callbackUrl)
       .subscribe(response => {
+        this.loading = false;
         if (response.success) {
           // Redirect user to PhonePe gateway page or handle the response accordingly
           console.log(response.data)
