@@ -23,4 +23,8 @@ export class PaymentCallbackComponent implements OnInit{
         console.log(response);
       });
   }
+
+  openApp() {
+    window.location.href = `testplus://mydata/${122}`;
+  }
 }
