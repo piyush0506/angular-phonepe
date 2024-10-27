@@ -29,8 +29,9 @@ export class PaymentCallbackComponent implements OnInit{
         var intervalId: any;
         intervalId = setInterval(() => {
           if(this.seconds < 0){
-            this.seconds--;
+            this.openApp();
           }
+          this.seconds--;
         }, 1000);
       });
   }
